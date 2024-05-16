@@ -6,8 +6,13 @@ namespace Programmering_prov_2
         private int damage = 25;
 
        
-        public void Attack(Enemy enemy){
-            enemy.Hp -= damage;
+        public int Attack(Enemy enemy){
+            return enemy.Hp -= damage;
         }
+
+        public int Hp{
+            get{return hp;}
+            set{hp = value;}
+         }
     }
 }
