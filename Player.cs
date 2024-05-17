@@ -3,10 +3,10 @@ namespace Programmering_prov_2
     public class Player
     {
         private int hp =  100;
-        private int damage = 25;
+        
 
        
-        public int Attack(Enemy enemy){
+        public int Attack(Enemy enemy, int damage){
             return enemy.Hp -= damage;
         }
 
