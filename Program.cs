@@ -8,7 +8,37 @@ using Programmering_prov_2;
         string scoreFilePath = "player_score.txt";
         Random random = new Random();
         
-        while(true){
+        while(true)
+        {
+            Console.WriteLine("❚█══Välkommen till Adams Batalj!══█❚");
+            Console.WriteLine("1. Starta Spelet");
+            Console.WriteLine("2. Avsluta Spelet");
+            
+            string mainChoice = Console.ReadLine();
+
+            switch (mainChoice)
+            {
+                case "1":
+                StartGame(random, scoreFilePath);
+                break;
+
+                case "2":
+                Console.WriteLine("Spelet Avslutas!");
+                return;
+
+                default:
+                Console.WriteLine("Ogiltigt val, Vänligen välj utskrivna alternativen");
+                break;
+
+            }
+        }
+    }
+        
+    
+        
+        static void StartGame(Random random, string scoreFilePath)
+        {
+            while(true){
             Player player = new Player();
             Enemy enemy = GetRandomEnemy(random);
             int playerScore = 0;
@@ -24,6 +54,7 @@ using Programmering_prov_2;
             Console.WriteLine("Välj ett alternativ: ");
             Console.WriteLine("1. Attackera fienden ");
             Console.WriteLine("2. Skriva ut din hälsa");
+            Console.WriteLine("3. Avsluta spelet");
 
             string choice = Console.ReadLine();
 
@@ -66,6 +97,10 @@ using Programmering_prov_2;
                 Console.WriteLine("Spelarens HP: " + player.Hp);
                 break;
 
+                case "3":
+                Console.WriteLine("Spelet avslutas. Tack för att du spelade!");
+                return;
+
                 default:
                 Console.WriteLine("Ogiltigt val. Vänligen välj ett av alternativen");
                 break;
@@ -79,8 +114,11 @@ using Programmering_prov_2;
             
         }
     }
+        }
+        
+        
 
-    }
+    
 
     static void SaveScore(string filePath, int score)
     {
