@@ -7,10 +7,13 @@ using Programmering_prov_2;
     {
         string scoreFilePath = "player_score.txt";
         Random random = new Random();
+        
         while(true){
             Player player = new Player();
-            Enemy enemy = new Enemy();
+            Enemy enemy = GetRandomEnemy(random);
             int playerScore = 0;
+
+            Console.WriteLine($"Du möter en {enemy.GetType().Name}!");
         
         
 
@@ -76,19 +79,7 @@ using Programmering_prov_2;
             
         }
     }
-            
-        
-        
-        
 
-        
-
-        
-
-        
-        
-
-        
     }
 
     static void SaveScore(string filePath, int score)
@@ -117,6 +108,12 @@ using Programmering_prov_2;
         {
             Console.WriteLine("Ingen poäng hittades.");
         }
+    }
+
+    static Enemy GetRandomEnemy(Random random)
+    {
+        int enemyType = random.Next(1,3);
+        return enemyType == 1 ? new Creeper() : new Zombie();
     }
 
  }
