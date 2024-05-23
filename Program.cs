@@ -36,7 +36,7 @@ using Programmering_prov_2;//namn för projektet
         
     
         
-        static void StartGame(Random random, string scoreFilePath)
+        static void StartGame(Random random, string scoreFilePath) 
         {
             while(true){ // En loop för att starta om spelet
             Player player = new Player(); // Skapar player
