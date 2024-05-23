@@ -4,7 +4,7 @@ namespace Programmering_prov_2
     {
         public Creeper()
         {
-            hp = 100;
+            hp = 100; // Sätter creepers hp
         }
     }
 }

@@ -6,7 +6,7 @@ namespace Programmering_prov_2
     {
         public Zombie()
         {
-            hp = 130;
+            hp = 130; // Sätter zombies hp
         }
     }
 }
