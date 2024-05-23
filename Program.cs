@@ -122,15 +122,9 @@ using Programmering_prov_2;
 
     static void SaveScore(string filePath, int score)
     {
-        if (File.Exists(filePath))
+        using (StreamWriter sw = new StreamWriter(filePath, true))
         {
-            string existingScore = File.ReadAllText(filePath);
-            int totalScore = int.Parse(existingScore) + score;
-            File.WriteAllText(filePath, totalScore.ToString());
-        }
-        else
-        {
-            File.WriteAllText(filePath, score.ToString());
+            sw.WriteLine(score.ToString());
         }
     }
 
@@ -138,14 +132,14 @@ using Programmering_prov_2;
     {
         if(File.Exists(filePath))
         {
-            string score = File.ReadAllText(filePath);
-            Console.WriteLine("Din totala poäng är: " + score);
+            string[] scores = File.ReadAllLines(filePath);
+            foreach (string score in scores)
+            {
+                Console.WriteLine("Din poäng blev: " + score);
+            }
 
         }
-        else
-        {
-            Console.WriteLine("Ingen poäng hittades.");
-        }
+        
     }
 
     static Enemy GetRandomEnemy(Random random)
